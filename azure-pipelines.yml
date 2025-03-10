@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+    source $HOME/.cargo/env
+    rustup toolchain install stable
+    rustup default stable
+  displayName: 'install rust'
+
+- script: cargo build --release
+  displayName: 'build release'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'target/release/chita-mdc'
+    ArtifactName: 'chita-mdc'
+    publishLocation: 'Container'
+  displayName: 'build artifact'

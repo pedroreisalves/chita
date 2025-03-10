@@ -1,0 +1,20 @@
+[package]
+name = "chita-mdc"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+azure_core = "0.20.0"
+azure_identity = "0.20.0"
+azure_security_keyvault = "0.20.0"
+azure_storage = "0.20.0"
+azure_storage_blobs = "0.20.0"
+chrono = "0.4.38"
+clokwerk = "0.4.0"
+reqwest = { version = "0.12.4", features = ["blocking"] }
+sentry = "0.34.0"
+tokio = { version = "1.38.0", features = ["full"] }
+tokio-util = "0.7.11"
+zip = "2.1.2"
